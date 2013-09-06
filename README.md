@@ -12,7 +12,22 @@ Exposes a couple types that make monitoring really easy and fun again
 Requires NRPE monitor
 
 
-# see server.pp for managing the nagios install
-# see client.pp for a base client class
-# see monitor.pp for a monitoring define
-# see collectors.pp for a class to only collect exported resources, not manage nagios
+server.pp
+---------
+
+For managing the nagios install
+
+client.pp
+---------
+
+for a base client class
+
+monitor.pp
+----------
+
+for a monitoring define
+
+collectors.pp
+-------------
+
+for a class to only collect exported resources, not manage nagios
