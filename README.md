@@ -12,8 +12,6 @@ Exposes a couple types that make monitoring really easy and fun again
 Requires NRPE monitor
 
 
-# nagios module
-
 # see server.pp for managing the nagios install
 # see client.pp for a base client class
 # see monitor.pp for a monitoring define
