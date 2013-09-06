@@ -6,7 +6,10 @@ class nagios::client(
   $check_rootSpace = true,
   $check_varSpace  = true,
   $nrpe_servers    = ["nagios.${domain}"],
-  $nrpe_commands   = undef
+  $nrpe_commands   = undef,
+  $target          = "/etc/nagios3/conf.d/puppet/${::fqdn}_s.cfg",
+  $owner           = 'nagios',
+  $group           = 'nagios',
 ){
 
   include nagios::monitor::raid
@@ -34,18 +37,18 @@ class nagios::client(
     @@file { "${fqdn}_nagios_host_file":
       ensure  => present,
       backup  => false,
-      owner   => nagios,
-      group   => nagios,
-      path    => "/etc/nagios3/conf.d/puppet/${::fqdn}.cfg",
+      owner   => $owner,
+      group   => $owner,
+      path    => $target,
       tag     => "env_nagios_$environment",
     }
 
     @@file { "${fqdn}_nagios_service_file":
       ensure  => present,
       backup  => false,
-      owner   => nagios,
-      group   => nagios,
-      path    => "/etc/nagios3/conf.d/puppet/${::fqdn}_s.cfg",
+      owner   => $owner,
+      group   => $owner,
+      path    => $target,
       tag     => "env_nagios_$environment",
     }
   }
