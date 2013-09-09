@@ -5,6 +5,7 @@ class nagios::client(
   $check_load      = true,
   $check_rootSpace = true,
   $check_varSpace  = true,
+  $manage_nrpe     = false,
   $nrpe_servers    = ["nagios.${domain}"],
   $nrpe_commands   = undef,
   $target          = "/etc/nagios3/conf.d/puppet/${::fqdn}_s.cfg",
