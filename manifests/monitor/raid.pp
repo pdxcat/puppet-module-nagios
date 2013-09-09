@@ -6,7 +6,7 @@ class nagios::monitor::raid {
     ensure => present,
     mode   => '0755',
     path   => "${nrpe::params::libdir}/check_md_raid",
-    source => "puppet://${::server}/modules/cecs/monitor/check_md_raid",
+    source => "puppet://${::server}/modules/nagios/check_md_raid",
   }
 
   if $::raidtype == 'software' {
@@ -20,8 +20,8 @@ class nagios::monitor::raid {
     if ( $::selinux == 'true' ) {
       semodloader::semodule {'nrpe_mdstat_local':
         source => [
-          "puppet://${::server}/modules/cecs/monitor/check_md_raid.te.${::osfamily}${::os_maj_version}",
-          "puppet://${::server}/modules/cecs/monitor/check_md_raid.te"
+          "puppet://${::server}/modules/nagios/check_md_raid.te.${::osfamily}${::os_maj_version}",
+          "puppet://${::server}/modules/nagios/check_md_raid.te"
         ],
         status => 'present',
       }

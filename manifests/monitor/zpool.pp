@@ -11,7 +11,7 @@ define nagios::monitor::zpool (
     ensure => present,
     mode   => '0755',
     path   => "${nrpe::params::libdir}/check_zfs",
-    source => "puppet://${::server}/modules/cecs/monitor/check_zfs",
+    source => "puppet://${::server}/modules/nagios/check_zfs",
   }
 
 
@@ -46,7 +46,7 @@ define nagios::monitor::zpool (
     owner   => 'root',
     path    => "${sudoers}/nagios",
     require => Package[$package],
-    source  => "puppet://${::server}/modules/cecs/monitor/sudoers.d/nagios",
+    source  => "puppet://${::server}/modules/nagios/sudoers.d/nagios",
   }
 
 

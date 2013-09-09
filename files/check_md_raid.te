@@ -1,0 +1,10 @@
+module nrpe_mdstat_local 1.0;
+
+require {
+        type nrpe_t;
+        type proc_mdstat_t;
+        class file { read ioctl open getattr };
+}
+
+#============= nrpe_t ==============
+allow nrpe_t proc_mdstat_t:file { read ioctl open getattr };
