@@ -1,0 +1,2 @@
+# Allow nagios to run zpool list and zpool status on all local zpools
+nagios ALL=(ALL) NOPASSWD: /sbin/zpool list *, /sbin/zpool status *
